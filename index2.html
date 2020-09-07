@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin-left: 300px;
+      margin-right: 300px;
+      font-family: helvetica;
+    }
+    .accordion {
+      color: #fff;
+      background-color: #57c3d3;
+      cursor: pointer;
+      padding: 10px 10px;
+      /* margin-top: 20px; */
+
+      width: 100%;
+      border: 1px solid #1edaf7;
+      text-align: left;
+      outline: none;
+      transition: 0.4s;
+    }
+
+    .active,
+    .accordion:hover {
+      background-color: #1edaf7;
+    }
+
+    .panel {
+      border: 1px solid #57c3d3;
+      padding: 0 18px;
+      font-size: 18px;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+  </style>
+  ​
+  <body>
+    <div class="accordion-div">
+      <button class="accordion">
+        <span>Section One</span>
+      </button>
+      <div class="panel">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra
+          pharetra massa massa ultricies mi quis hendrerit. Ultrices mi tempus
+          imperdiet nulla malesuada pellentesque elit eget gravida. Lacus vel
+          facilisis volutpat est velit egestas dui. Odio eu feugiat pretium
+          nibh.
+        </p>
+      </div>
+
+      <button class="accordion">
+        <span>Section Two</span>
+      </button>
+      <div class="panel">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra
+          pharetra massa massa ultricies mi quis hendrerit. Lacus vel facilisis
+          volutpat est velit egestas dui. Odio eu feugiat pretium nibh.
+        </p>
+      </div>
+
+      <button class="accordion">
+        <span>Section Three</span>
+      </button>
+      <div class="panel">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra
+          pharetra massa massa ultricies mi quis hendrerit. Ultrices mi tempus
+          imperdiet nulla malesuada pellentesque elit eget gravida. Lacus vel
+          facilisis volutpat est velit egestas dui. Odio eu feugiat pretium
+          nibh.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      let acc = document.getElementsByClassName("accordion")
+      var i
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          var panel = this.nextElementSibling
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null
+          } else {
+            let active = document.querySelectorAll(
+              ".accordion-div .accordion.active"
+            )
+            for (let j = 0; j < active.length; j++) {
+              active[j].classList.remove("active")
+              active[j].nextElementSibling.style.maxHeight = null
+            }
+            this.classList.toggle("active")
+            panel.style.maxHeight = panel.scrollHeight + "px"
+          }
+        })
+      }
+    </script>
+  </body>
+</html>

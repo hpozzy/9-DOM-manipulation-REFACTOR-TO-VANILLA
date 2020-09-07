@@ -1,0 +1,33 @@
+body {
+  margin-left: 300px;
+  margin-right: 300px;
+  font-family: helvetica;
+}
+.accordion {
+  color: #fff;
+  background-color: #57c3d3;
+  cursor: pointer;
+  padding: 10px 10px;
+  /* margin-top: 20px; */
+
+  width: 100%;
+  border: 1px solid #1edaf7;
+  text-align: left;
+  outline: none;
+  transition: 0.4s;
+}
+
+.active,
+.accordion:hover {
+  background-color: #1edaf7;
+}
+
+.panel {
+  border: 1px solid #57c3d3;
+  padding: 0 18px;
+  font-size: 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
